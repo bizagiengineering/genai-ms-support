@@ -70,11 +70,14 @@ Create a `secrets.json` file with the following structure:
 
 This file must be located in the correct secrets path for .NET user secrets, or adapted into your preferred configuration method.
 
-Option B: Inline in Code
+#### Option B: Inline in Code
+
 If desired, you can directly edit the variables in the main program file:
 
-string openAIUri = "<your-uri-here>";
-string openAIKey = "<your-key-here>";
+```C#
+  string openAIUri = "<your-uri-here>";
+  string openAIKey = "<your-key-here>";
+```
 
 ⚠️ Important: Make sure not to commit real keys to any public repository.
 
