@@ -23,10 +23,10 @@ We are currently experiencing a consistent issue where the responses from the `g
   3. A **user message** with a natural language question (approx. 35 tokens).
 - The `ChatCompletionsOptions` are configured with `MaxTokens=16384` (maximum allowed).
 - Despite this, responses are often truncated before reaching this token limit.
-- This issue occurs even when:
-  - Using a **dedicated model deployment** to eliminate quota or concurrency issues.
+- The issue was reproduced under the following conditions:
+  - To eliminate the possibility of quota or concurrency issues, we used a dedicated model deployment with only a single active user.
   - Azure usage metrics show **no token exhaustion or rate limit violations**.
-  - Varying or omitting the `MaxTokens` parameter has **no effect** on the outcome.
+  - Varying or omitting the `MaxTokens` parameter had **no effect** on the outcome.
 - Output diagnostics from the model (shown in console):
   - `InputTokens`, `OutputTokens`, and `TotalTokens` are always well within allowed limits.
   - Yet, the model still frequently returns **incomplete responses**.
